@@ -1,0 +1,36 @@
+# Директория с бинарным файлом, созданным при сборке
+/bin/
+/build/
+/dist/
+
+# Кэшированные файлы сборки Go
+*.exe
+*.dll
+*.so
+*.dylib
+*.out
+
+# Временные файлы и каталоги
+*.tmp
+*.log
+*.swp
+
+# Файлы конфигурации среды
+.env
+
+# Модули и зависимости Go
+/vendor/
+go.sum
+
+# IDE/редакторы кода
+.vscode/
+.idea/
+*.iml
+
+# Docker-файлы
+docker-compose.override.yml
+.env.*
+
+# Системные файлы
+.DS_Store
+Thumbs.db
