@@ -25,7 +25,7 @@ Zephyrka is a Telegram bot that integrates OpenAI's GPT-3.5 Turbo model for inte
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-repo/zephyrka-bot.git
+git clone https://github.com/Alex4124/marshmallow_ai
 cd zephyrka-bot
 ```
 
