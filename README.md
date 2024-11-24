@@ -1,6 +1,6 @@
-# Zephyrka - Telegram Bot Powered by OpenAI API
+# MarshMallowAI - Telegram Bot Powered by OpenAI API
 
-Zephyrka is a Telegram bot that integrates OpenAI's GPT-3.5 Turbo model for intelligent and conversational responses. Whether in group chats or private messages, Zephyrka processes user queries and provides thoughtful replies, creating a seamless experience for engaging AI-driven conversations.
+MarshMallowAI is a Telegram bot that integrates OpenAI's GPT-3.5 Turbo model for intelligent and conversational responses. Whether in group chats or private messages, Zephyrka processes user queries and provides thoughtful replies, creating a seamless experience for engaging AI-driven conversations.
 
 ---
 
@@ -26,7 +26,7 @@ Zephyrka is a Telegram bot that integrates OpenAI's GPT-3.5 Turbo model for inte
 
 ```bash
 git clone https://github.com/Alex4124/marshmallow_ai
-cd zephyrka-bot
+cd marshmallow_ai
 ```
 
 ### Install Dependencies
@@ -61,8 +61,8 @@ go run main.go
 1. **Add Zephyrka to Your Telegram**: Start a chat with the bot or add it to a group.
 2. **Interact**:
    - In **private messages**, simply type your query.
-   - In **group chats**, mention the bot using `@Zephyrka` or reply to a message from the bot.
-3. **Wait for Zephyrka's Response**: The bot will respond using OpenAI's GPT-3.5 Turbo model.
+   - In **group chats**, mention the bot using `@MarshMallowAIBot` or reply to a message from the bot.
+3. **Wait for MarshMallowAI's Response**: The bot will respond using OpenAI's GPT-3.5 Turbo model.
 
 ---
 
@@ -121,4 +121,4 @@ Contributions are welcome! Please fork the repository, create a new branch for y
 
 For inquiries, reach out to the project maintainer at **leskinen01@mail.ru**.
 
-Happy chatting with Zephyrka! 🎉
+Happy chatting with MarshMallowAI! 🎉
