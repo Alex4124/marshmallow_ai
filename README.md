@@ -1,6 +1,6 @@
 # MarshMallowAI - Telegram Bot Powered by OpenAI API
 
-MarshMallowAI is a Telegram bot that integrates OpenAI's GPT-3.5 Turbo model for intelligent and conversational responses. Whether in group chats or private messages, Zephyrka processes user queries and provides thoughtful replies, creating a seamless experience for engaging AI-driven conversations.
+MarshMallowAI is a Telegram bot that integrates OpenAI's GPT-3.5 Turbo model for intelligent and conversational responses. Whether in group chats or private messages, MarshMallowAI processes user queries and provides thoughtful replies, creating a seamless experience for engaging AI-driven conversations.
 
 ---
 
@@ -58,7 +58,7 @@ go run main.go
 
 ## How to Use
 
-1. **Add Zephyrka to Your Telegram**: Start a chat with the bot or add it to a group.
+1. **Add MarshMallowAI to Your Telegram**: Start a chat with the bot or add it to a group.
 2. **Interact**:
    - In **private messages**, simply type your query.
    - In **group chats**, mention the bot using `@MarshMallowAIBot` or reply to a message from the bot.
