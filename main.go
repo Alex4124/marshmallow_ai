@@ -13,6 +13,8 @@ import (
 	"github.com/openai/openai-go/option"
 )
 
+var chatHistories = make(map[int64][]openai.ChatCompletionMessageParamUnion)
+
 func main() {
 	// Loading environment variables from the .env file
 	err := godotenv.Load()
@@ -91,6 +93,8 @@ func main() {
 			chatID := update.Message.Chat.ID
 			userMessage := update.Message.Text
 
+		
+
 			if mentionBot {
 				// Remove bot mention if it's present in the message
 				userMessage = strings.Replace(userMessage, fmt.Sprintf("@%s", bot.Self.UserName), "", 1)
@@ -104,13 +108,17 @@ func main() {
 
 			log.Printf("[%s] %s", update.Message.From.UserName, userMessage)
 
+			chatHistories[chatID] = append(chatHistories[chatID], openai.UserMessage(userMessage))
+
+			if len(chatHistories[chatID]) > 10 {
+				chatHistories[chatID] = chatHistories[chatID][len(chatHistories[chatID])-10:]
+			}
+
 			// Receive response from OpenAI
 			chatCompletion, err := openaiClient.Chat.Completions.New(
 				context.TODO(),
 				openai.ChatCompletionNewParams{
-					Messages: openai.F([]openai.ChatCompletionMessageParamUnion{
-						openai.UserMessage(userMessage),
-					}),
+					Messages: openai.F(chatHistories[chatID]),
 					Model: openai.F(openai.ChatModelGPT3_5Turbo),
 				},
 			)
@@ -119,8 +127,10 @@ func main() {
 				log.Printf("Error sending message to OpenAI: %v", err)
 			}
 
+
 			// Create a message to send back the same text
 			responseMessage := chatCompletion.Choices[0].Message.Content
+			chatHistories[chatID] = append(chatHistories[chatID], openai.AssistantMessage(responseMessage))
 			msg := tgbotapi.NewMessage(chatID, responseMessage)
 
 			// Highlights the message to which you are replying
