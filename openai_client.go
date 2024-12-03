@@ -57,6 +57,7 @@ func GetOpenAIResponse(client *openai.Client, messages []openai.ChatCompletionMe
 	}
 
 	chatCompletion, err := client.Chat.Completions.New(context.Background(), param)
+
 	if err != nil {
 		return "", err
 	}
