@@ -27,8 +27,30 @@ func main() {
 		log.Fatalf("Error initializing bot: %v\n", err)
 	}
 
+	qdrantClient, err := InitQdrantClient()
+	if err != nil {
+		log.Fatalf("Error initializing Qdrant client: %v\n", err)
+	}
+
+	collectionName := "chat_history"
+	vectorSize := 1536
+
+	// Удаляем коллекцию, если она существует
+	// err = DeleteCollection(qdrantClient, collectionName)
+	// if err != nil {
+	// 	log.Printf("Ошибка при удалении коллекции: %v", err)
+	// } else {
+	// 	log.Printf("Коллекция %s успешно удалена", collectionName)
+	// }
+
+	// Создаем коллекцию
+	err = CreateCollection(qdrantClient, collectionName, vectorSize)
+	if err != nil {
+		log.Printf("Ошибка при создании коллекции: %v", err)
+	}
+
 	openaiClient := InitOpenAIClient(openaiAPIKey)
 
 	// Start handling updates
-	HandleUpdates(bot, openaiClient)
+	HandleUpdates(bot, openaiClient, qdrantClient, collectionName)
 }
