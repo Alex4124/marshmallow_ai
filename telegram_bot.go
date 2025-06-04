@@ -110,7 +110,7 @@ func HandleUpdates(bot *tgbotapi.BotAPI, openaiClient *openai.Client, qdrantClie
 			// 	continue
 			// }
 
-			embedding, err := GetEmbedding(openaiClient, userMessage)
+			embedding, err := GetEmbedding(userMessage)
 			if err != nil {
 				log.Printf("Error getting embedding: %v", err)
 				continue

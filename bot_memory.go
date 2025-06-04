@@ -13,21 +13,20 @@ func InitQdrantClient() (*qdrant.Client, error) {
 		Port: 6334,
 	})
 	if err != nil {
-		fmt.Errorf("search error: %w", err)
+		return nil, fmt.Errorf("search error: %w", err)
 	}
-	return client, err
+	return client, nil
 }
 
 func CreateCollection(client *qdrant.Client, collectionName string, vectorSize int) error {
-	client.CreateCollection(context.Background(), &qdrant.CreateCollection{
+	err := client.CreateCollection(context.Background(), &qdrant.CreateCollection{
 		CollectionName: collectionName,
 		VectorsConfig: qdrant.NewVectorsConfig(&qdrant.VectorParams{
 			Size:     uint64(vectorSize),
 			Distance: qdrant.Distance_Cosine,
 		}),
 	})
-
-	return nil
+	return err
 }
 
 func UpserVector(client *qdrant.Client, collectionName string, points []*qdrant.PointStruct) error {
