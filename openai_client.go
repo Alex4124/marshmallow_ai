@@ -69,7 +69,7 @@ func GetOpenAIResponse(client *openai.Client, messages []openai.ChatCompletionMe
 	return chatCompletion.Choices[0].Message.Content, nil
 }
 
-func GetEmbedding(apiKey *openai.Client, input string) ([]float64, error) {
+func GetEmbedding(input string) ([]float64, error) {
 	openaiAPIKey := os.Getenv("OPENAI_API_KEY")
 	if input == "" {
 		return nil, fmt.Errorf("input text cannot be empty")
